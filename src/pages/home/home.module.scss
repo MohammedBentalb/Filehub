@@ -1,0 +1,108 @@
+@import '../../variables.scss';
+
+.main {
+  width: min(1440px, 100% - 2rem);
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header {
+  width: min(700px, 100% - 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.firstH1 {
+  font-size: clamp(2.7rem, 4vw, 3.5rem);
+  span {
+    color: hsl($primary_one);
+  }
+}
+
+.first_paragraph {
+  color: hsl($secondary_four);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  text-align: center;
+  span {
+    color: hsl($primary_three);
+    font-weight: 600;
+    position: relative;
+    span {
+      color: hsl($primary_one);
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+
+.second_paragraph {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  border-radius: 5px;
+  position: relative;
+  font-weight: 400;
+  text-align: center;
+  &::first-letter {
+    color: hsl($primary_one);
+    font-size: clamp(2rem, 2.3vw, 1.5rem);
+  }
+  span {
+    color: hsl($error_color);
+    text-transform: capitalize;
+  }
+}
+
+.slider {
+  display: flex;
+  height: 100px;
+  width: min(500px, 100% - 2rem);
+  overflow-x: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 25%,
+    white 75%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 25%, white 75%, transparent);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+  li {
+    background-color: hsl($secondary_one);
+    white-space: nowrap;
+    padding: 0.4rem 0.5rem;
+    border-radius: 5px;
+    color: hsl($secondary_two);
+    box-shadow: 2px 1px 5px hsl(0 0% 0% /0.3);
+  }
+  animation: slideIn 35s linear infinite;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(calc( -50% - $gap));
+  }
+}
+
+.getStarted{
+  background-color: hsl($primary_one);
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  color: white;
+  font-weight: 500;
+  &:hover{
+    background-color: hsl($primary_two);
+  }
+}
